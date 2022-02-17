@@ -1,0 +1,5 @@
+rootProject.name = 'capgemini-academy'
+include 'capgemini-first-question'
+include 'capgemini-second-question'
+include 'capgemini-third-question'
+
