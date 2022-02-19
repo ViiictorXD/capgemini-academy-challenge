@@ -24,38 +24,28 @@ public class SecondQuestionMain {
           (classes que implementam a classe Closeable conseguem utilizar este recurso e fechar automaticamente após o uso)
          */
         try (final Scanner scanner = new Scanner(System.in)) {
-            /*
-               Instância da senha escaneada
-             */
+            // Instância da senha escaneada
             final String password = scanner.next();
 
-            /*
-              Percorrendo todas as validações
-             */
+            // Percorrendo todas as validações
             for (Validate validate : Validate.values()) {
-                /*
-                  Verificando se é válido, caso verdadeiro, continuaremos a percorrer
-                 */
+                // Verificando se é válido, caso verdadeiro, continuaremos a percorrer
                 if (!validate.invalid(password))
                     continue;
 
-                /*
-                  A partir deste momento um erro já é previsto na senha da Débora
-                 */
-
-                /*
-                  Instanciando a variável e substituindo um variável local
-                 */
+                // A partir deste momento um erro já é previsto na senha da Débora
+                // Instanciando a variável e substituindo um variável local
                 final String message = validate.getMessage()
                         .replace("{left}", String.valueOf(6 - password.length()));
 
-                /*
-                  Enviando mensagem ao console indicando o erro da senha
-                 */
+                // Enviando mensagem ao console indicando o erro da senha
                 System.out.println(message);
+
+                // Retornamos, já que se é um erro, não tem o por que prosseguir
                 return;
             }
 
+            // Imprimindo que a senha é segura
             System.out.println("Sua senha é segura.");
         }
     }
